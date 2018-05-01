@@ -1,6 +1,8 @@
-var app           = require('app')
-  , BrowserWindow = require('browser-window')
-  , Menu          = require('menu')
+var { 
+  app 
+  , BrowserWindow
+  , Menu 
+}                 = require('electron')
   , env           = require('node-env-file');
 
 var mainWindow = null
@@ -20,7 +22,7 @@ app.on('window-all-closed', function() {
 
 app.on('ready', function() {
   mainWindow = new BrowserWindow({width: windowRatio[0], height: windowRatio[1]});
-  mainWindow.loadUrl('file://' + __dirname + '/index.html');
+  mainWindow.loadURL('file://' + __dirname + '/index.html');
 
   if (process.env.ENV === 'dev') mainWindow.openDevTools();
 
